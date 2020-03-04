@@ -12,7 +12,8 @@ new ApolloServer({
   typeDefs,
   resolvers,
   playground: true,
-  context: ({ req }) =>
-    req.headers['x-forwarded-for'] || req.connection.remoteAddress || '8.8.8.8',
+  context: ({ req }) => ({
+    ip: req.headers['x-forwarded-for'] || req.connection.remoteAddress,
+  }),
 }).applyMiddleware({ app });
-app.listen(PORT, () => `Listening at http://localhost:${PORT}`);
+app.listen(PORT, () => console.log(`Listening at http://localhost:${PORT}`));

@@ -1,6 +1,9 @@
 {
-  "presets": ["env"],
-  "plugins": ["babel-plugin-transform-object-rest-spread"],
+  "presets": ["@babel/env"],
+  "plugins": [
+    "@babel/plugin-transform-runtime",
+    "@babel/plugin-proposal-object-rest-spread"
+  ],
   "env": {
     "debug": {
       "sourceMaps": "inline",
