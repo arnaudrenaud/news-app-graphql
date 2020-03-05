@@ -15,8 +15,9 @@
     "node-fetch": "^2.6.0"
   },
   "scripts": {
-    "build-babel": "babel -d ./build ./src -s",
-    "build": "rm -rf build && yarn build-babel",
+    "build-server": "babel -d ./build ./src -s",
+    "build-client": "cd client && yarn && rm -rf build && yarn build",
+    "build": "rm -rf build && yarn build-server && yarn build-client",
     "start": "node ./build/index.js",
     "start:watch": "nodemon --exec 'babel-node src/index.js'"
   },
